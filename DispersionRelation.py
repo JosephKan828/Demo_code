@@ -51,6 +51,32 @@ class EquatorialWaveDispersion:
         s_max: float = 20.0,
     ):
         # --- constants ---
+        """
+        Initialize the EquatorialWaveDispersion class.
+
+        Parameters
+        ----------
+        nPlanetaryWave : int, optional
+            Number of zonal wavenumber samples (s points).
+        rlat : float, optional
+            Latitude (radians). Use 0.0 for equator.
+        Ahe : sequence of float, optional
+            Equivalent depths [m] for the vertical modes.
+        s_min, s_max : float, optional
+            Minimum and maximum zonal wavenumber index s
+            (dimensionless, used to generate the s-grid).
+
+        Attributes
+        ----------
+        s : ndarray, shape (nPlanetaryWave,)
+            Zonal wavenumber index (dimensionless).
+        k : ndarray, shape (nPlanetaryWave,)
+            Zonal wavenumber in rad/m.
+        Ahe : ndarray, shape (nEquivDepth,)
+            Equivalent depths [m].
+        Beta : float
+            Meridional gradient of Coriolis parameter at latitude rlat.
+        """
         self.pi = np.pi
         self.radius = 6.37122e6        # [m]
         self.g = 9.80665               # [m s^-2]
