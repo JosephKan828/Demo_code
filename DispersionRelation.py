@@ -177,7 +177,7 @@ class EquatorialWaveDispersion:
                 # rad/s → cycles/day
                 Afreq[iw, ie, :] = freq / two_pi * sec_per_day
 
-        return Afreq, Apzwn, wave_names
+        return np.fft.fftshift(Afreq, axes=-1), np.fft.fftshift(Apzwn, axes=-1), wave_names
 
     # ------------------------------------------------------------------
     #   Dispersion relations (internal, vectorized)
